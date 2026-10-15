@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080706">
+<title>50's · Lidia Sáenz</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold: #e3c174;
+  --gold-light: #ffedba;
+  --black: #080706;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at top, #292014 0%, #080706 55%);
+  color: #fff8e8;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+button { font: inherit; }
+
+#entrance {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: radial-gradient(ellipse, #251d10, #050505 75%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  text-align: center;
+  transition: opacity 1.2s ease, visibility 1.2s;
+}
+
+#entrance.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.crown {
+  color: var(--gold);
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.entrance-title {
+  color: var(--gold-light);
+  letter-spacing: 5px;
+  font-size: 13px;
+}
+
+.seal {
+  width: 155px;
+  height: 155px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 28px 0;
+  box-shadow: 0 0 35px #b58a3630, inset 0 0 25px #b58a3620;
+}
+
+.seal strong {
+  font-size: 65px;
+  font-weight: 400;
+  color: var(--gold);
+}
+
+.seal span {
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+
+.open-btn {
+  background: linear-gradient(120deg, #f8e3a4, #b58a36);
+  border: none;
+  color: #171006;
+  padding: 15px 28px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.open-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px #d4ad5540;
+}
+
+main {
+  max-width: 540px;
+  margin: auto;
+  padding: 22px 16px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 34px 22px;
+  border: 1px solid #bd944c;
+  outline: 1px solid #bd944c65;
+  outline-offset: -8px;
+  background:
+    radial-gradient(ellipse at top, #211a0f 0%, #0a0907 48%, #050505 100%);
+  box-shadow: 0 20px 80px #000;
+  opacity: 0;
+  transform: translateY(22px) scale(.98);
+}
+
+.card.reveal {
+  animation: reveal 1.5s ease forwards;
+}
+
+@keyframes reveal {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.ornament {
+  color: var(--gold);
+  letter-spacing: 5px;
+  font-size: 21px;
+  margin: 12px 0;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  line-height: 1.9;
+}
+
+.gold { color: var(--gold); }
+
+.fifty {
+  font-size: clamp(90px, 25vw, 130px);
+  line-height: 1;
+  margin: 18px 0 0;
+  font-weight: 500;
+  letter-spacing: -5px;
+  background: linear-gradient(120deg, #fff1bd, #b88935 40%, #ffedb2 60%, #9c7028);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 4px 12px #b88a3630);
+}
+
+.mom {
+  font-family: 'Great Vibes', cursive;
+  color: var(--gold-light);
+  font-size: clamp(46px, 12vw, 65px);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.subtitle {
+  font-size: 16px;
+  letter-spacing: 3px;
+  line-height: 1.8;
+}
+
+.invite-label {
+  margin-top: 32px;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.guest {
+  color: var(--gold);
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(35px, 9vw, 49px);
+  line-height: 1.35;
+  margin: 10px 0 18px;
+  overflow-wrap: anywhere;
+}
+
+.message {
+  font-size: 19px;
+  line-height: 1.55;
+  max-width: 390px;
+  margin: auto;
+}
+
+.details {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.detail {
+  border-top: 1px solid #a7813e80;
+  padding-top: 15px;
+}
+
+.detail-label {
+  display: block;
+  color: var(--gold);
+  letter-spacing: 3px;
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+
+.detail-value {
+  font-size: 20px;
+}
+
+.footer {
+  margin-top: 28px;
+  color: var(--gold);
+  letter-spacing: 5px;
+  font-size: 12px;
+}
+
+@media (min-width: 430px) {
+  .card { padding: 45px 30px; }
+  .details { grid-template-columns: 1fr 1fr; }
+  .detail:last-child { grid-column: 1 / -1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section id="entrance">
+  <div class="crown">♕</div>
+  <div class="entrance-title">UNA INVITACIÓN ESPECIAL</div>
+
+  <div class="seal">
+    <strong>50's</strong>
+    <span>LIDIA SÁENZ</span>
+  </div>
+
+  <p style="max-width:310px;line-height:1.7">
+    Una noche para celebrar la vida, el amor y los recuerdos que nos unen.
+  </p>
+
+  <button class="open-btn" id="open">
+    ABRIR INVITACIÓN ✦
+  </button>
+</section>
+
+<main>
+  <article class="card" id="card">
+    <div class="ornament">♕ ❧ ✧ ❧ ♕</div>
+
+    <div class="eyebrow">UNA CELEBRACIÓN ESPECIAL</div>
+
+    <div class="fifty">50's</div>
+    <h1 class="mom">Lidia Sáenz</h1>
+
+    <div class="subtitle gold">
+      UNA VIDA LLENA DE AMOR,<br>
+      RECUERDOS Y BENDICIONES
+    </div>
+
+    <div class="ornament">──────── ✧ ────────</div>
+
+    <div class="invite-label">TENEMOS EL HONOR DE INVITAR A</div>
+    <div class="guest" id="guest">Invitado especial</div>
+
+    <p class="message">
+      A compartir este gran día junto a nuestra querida
+      <span class="gold">Lidia Sáenz</span>, celebrando sus
+      50 años de vida en una tarde llena de alegría, amor
+      y momentos inolvidables.
+    </p>
+
+    <p class="gold" style="font-style:italic;font-size:19px">
+      Será un honor contar con su presencia.
+    </p>
+
+    <div class="ornament">──────── ✧ ────────</div>
+
+    <section class="details">
+      <div class="detail">
+        <span class="detail-label">FECHA</span>
+        <span class="detail-value">5 de diciembre<br>de 2026</span>
+      </div>
+
+      <div class="detail">
+        <span class="detail-label">HORA</span>
+        <span class="detail-value">2:00 p. m.</span>
+      </div>
+
+      <div class="detail">
+        <span class="detail-label">LUGAR</span>
+        <span class="detail-value">Casa de habitación<br>Linda Vista</span>
+      </div>
+    </section>
+
+    <div class="ornament">──────── ✧ ────────</div>
+    <div class="footer">¡TE ESPERAMOS!</div>
+    <div class="ornament">❧</div>
+  </article>
+</main>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const name = (params.get("para") || "").trim();
+
+const guestElement = document.getElementById("guest");
+
+if (name) {
+  guestElement.textContent = name.slice(0, 100);
+} else {
+  guestElement.textContent = "Invitado especial";
+}
+
+document.getElementById("open").addEventListener("click", () => {
+  document.getElementById("entrance").classList.add("hide");
+  document.getElementById("card").classList.add("reveal");
+});
+</script>
+
+</body>
+</html>
